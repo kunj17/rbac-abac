@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="fortress-load"  >
+<target name="fortress-load" description="Loads sample role engineering policy into ldap" if="load.file">
+  <echo message="###############  Run Fortress Ant script to load role engineering sample policy into ldap ###############"/>
+  <java fork="true" classname="org.apache.tools.ant.launch.Launcher" taskname="startAnt" failonerror="true" dir="/Users/kunjpatel/Desktop/PROJ_BHAVANI/rbac-abac-sample" timeout="4000000">
+    <classpath refid="maven.test.classpath"/>
+    <sysproperty value="2.0.5" key="version"/>
+    <sysproperty value="HOME" key="tenant"/>
+    <arg value="-buildfile"/>
+    <arg file="./src/main/resources/RbacAbacSamplePolicy.xml"/>
+  </java>
+</target>
+</project>
